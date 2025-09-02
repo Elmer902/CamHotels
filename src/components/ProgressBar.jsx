@@ -32,14 +32,15 @@ const StepProgressBar = () => {
 
         {/* Step circles */}
         {steps.map((step, index) => (
-          <div key={index} className="relative flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center relative">
             <div
-              className={`w-8 h-8 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
+              className={`w-8 h-8 flex items-center justify-center rounded-full z-10 
                 ${index + 1 <= currentStep ? "bg-blue-900 text-white" : "bg-gray-300 text-black"}`}
+              style={{ marginTop: "-50%" }} // vertically center on the line
             >
               {index + 1}
             </div>
-            <p className="mt-2 text-sm text-center">{step.name}</p>
+            <p className="mt-6 text-sm text-center">{step.name}</p> {/* space for label */}
           </div>
         ))}
       </div>
