@@ -36,7 +36,7 @@ const StepProgressBar = () => {
         {steps.map((step, index) => (
           <div key={index} className="flex flex-col items-center w-1/3">
             <div
-              className={`w-16 h-16 mt-5 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
+              className={`w-8 h-8 mt-5 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
                 ${index + 1 <= currentStep ? "bg-blue-900 text-white" : "bg-gray-300 text-black"}`}
             >
               {index + 1}
