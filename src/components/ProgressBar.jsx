@@ -24,11 +24,11 @@ const StepProgressBar = () => {
     <div className="w-full flex flex-col items-center mb-8 font-itim">
       <div className="relative flex items-center justify-between w-3/4">
         {/* Gray line */}
-        <div className="absolute top-1/2 left-0 w-full h-4 bg-gray-300 rounded-lg -translate-y-1/2"></div>
+        <div className="absolute top-1/2 left-0 w-full h-2 bg-gray-300 rounded-lg -translate-y-1/2"></div>
 
         {/* Blue filled line */}
         <div
-          className="absolute top-1/2 left-0 h-4 bg-blue-600 rounded-lg -translate-y-1/2 transition-all duration-1000 ease-in-out"
+          className="absolute top-1/2 left-0 h-2 bg-blue-600 rounded-lg -translate-y-1/2 transition-all duration-1000 ease-in-out"
           style={{ width: `${progress}%` }}
         ></div>
 
