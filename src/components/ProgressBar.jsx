@@ -34,9 +34,9 @@ const StepProgressBar = () => {
 
         {/* Step circles */}
         {steps.map((step, index) => (
-          <div key={index} className="flex flex-col items-center w-1/3">
+          <div key={index} className="flex flex-col items-center w-1/3 relative">
             <div
-              className={`w-10 h-10 mt-5 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
+              className={`w-10 h-10 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
                 ${index + 1 <= currentStep ? "bg-blue-900 text-white" : "bg-gray-300 text-black"}`}
             >
               {index + 1}
