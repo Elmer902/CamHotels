@@ -11,10 +11,8 @@ const StepProgressBar = () => {
   const location = useLocation();
   const [progress, setProgress] = useState(0);
 
-  // Find current step
   const currentStep = steps.findIndex((s) => s.path === location.pathname) + 1;
 
-  // Animate when step changes
   useEffect(() => {
     const newWidth = ((currentStep - 1) / (steps.length - 1)) * 100;
     setProgress(newWidth);
@@ -22,7 +20,7 @@ const StepProgressBar = () => {
 
   return (
     <div className="w-full flex flex-col items-center mb-8 font-itim">
-      <div className="relative flex items-center justify-between w-3/4">
+      <div className="relative flex items-center justify-between w-3/4 h-12">
         {/* Gray line */}
         <div className="absolute top-1/2 left-0 w-full h-2 bg-gray-300 rounded-lg -translate-y-1/2"></div>
 
@@ -34,9 +32,9 @@ const StepProgressBar = () => {
 
         {/* Step circles */}
         {steps.map((step, index) => (
-          <div key={index} className="flex flex-col items-center w-1/3">
+          <div key={index} className="relative flex flex-col items-center">
             <div
-              className={`w-8 h-8 mt-5 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
+              className={`w-8 h-8 flex items-center justify-center rounded-full z-10 transition-all duration-1000 
                 ${index + 1 <= currentStep ? "bg-blue-900 text-white" : "bg-gray-300 text-black"}`}
             >
               {index + 1}
