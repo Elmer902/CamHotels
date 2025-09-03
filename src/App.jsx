@@ -13,6 +13,8 @@ import BookingSuccesful from "./components/BookingSuccesful";
 import BookingLayout from "./Layouts/BookingLayout"; 
 import { SearchProvider } from "./Context/SearchContext";
 import { UserProvider } from "./Context/UserContext";
+;
+
 const App = () => {
   return (
     <SearchProvider>
