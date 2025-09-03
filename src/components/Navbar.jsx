@@ -7,15 +7,27 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState("en"); // default English
+
+  // Translations
+  const translations = {
+    en: { home: "Home", stays: "Stays", bookings: "Bookings" },
+    fr: { home: "Accueil", stays: "Séjours", bookings: "Réservations" },
+  };
+
+  // Toggle language function
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "fr" : "en"));
+  };
 
   return (
     <div className="bg-[#1B53E2]/90 fixed w-full z-20 font-itim shadow-md">
       <nav className="flex justify-between items-center px-6 md:px-8 h-[83px]">
         {/* Logo */}
-       <NavLink to="/Home">
-        <div className="flex items-center gap-8">
-          <img src={logo} alt="Logo" className="w-24" />
-        </div>
+        <NavLink to="/Home">
+          <div className="flex items-center gap-8">
+            <img src={logo} alt="Logo" className="w-24" />
+          </div>
         </NavLink>
 
         {/* Desktop Links */}
@@ -26,7 +38,7 @@ const Navbar = () => {
               isActive ? "text-black font-bold" : "text-white"
             }
           >
-            Home
+            {translations[language].home}
           </NavLink>
           <NavLink
             to="/stays"
@@ -34,7 +46,7 @@ const Navbar = () => {
               isActive ? "text-black font-bold" : "text-white"
             }
           >
-            Stays
+            {translations[language].stays}
           </NavLink>
           <NavLink
             to="/booking"
@@ -42,7 +54,7 @@ const Navbar = () => {
               isActive ? "text-black font-bold" : "text-white"
             }
           >
-            Bookings
+            {translations[language].bookings}
           </NavLink>
         </div>
 
@@ -51,7 +63,14 @@ const Navbar = () => {
           <NavLink to="/user">
             <img src={Person} alt="User" className="w-8" />
           </NavLink>
-          <img src={English} alt="English" className="w-12" />
+          <button onClick={toggleLanguage}>
+            <img
+              src={English}
+              alt="Language"
+              className="w-12"
+              title={language === "en" ? "Switch to French" : "Switch to English"}
+            />
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -75,7 +94,7 @@ const Navbar = () => {
               isActive ? "text-black font-bold" : "text-white"
             }
           >
-            Home
+            {translations[language].home}
           </NavLink>
           <NavLink
             to="/stays"
@@ -84,7 +103,7 @@ const Navbar = () => {
               isActive ? "text-black font-bold" : "text-white"
             }
           >
-            Stays
+            {translations[language].stays}
           </NavLink>
           <NavLink
             to="/booking"
@@ -93,13 +112,20 @@ const Navbar = () => {
               isActive ? "text-black font-bold" : "text-white"
             }
           >
-            Bookings
+            {translations[language].bookings}
           </NavLink>
           <div className="flex items-center gap-4 mt-2">
             <NavLink to="/user" onClick={() => setMenuOpen(false)}>
               <img src={Person} alt="User" className="w-8" />
             </NavLink>
-            <img src={English} alt="English" className="w-12" />
+            <button onClick={toggleLanguage}>
+              <img
+                src={English}
+                alt="Language"
+                className="w-12"
+                title={language === "en" ? "Switch to French" : "Switch to English"}
+              />
+            </button>
           </div>
         </div>
       )}
